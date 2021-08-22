@@ -1,0 +1,161 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "task manager",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "ShowTaskIntent",
+          "slots": [],
+          "samples": [
+            "list all tasks",
+            "show me my tasks",
+            "show all tasks",
+            "show the tasks",
+            "list my tasks",
+            "list tasks",
+            "show me tasks for today",
+            "show me the tasks",
+            "show my remaining tasks",
+            "show my tasks",
+            "show tasks"
+          ]
+        },
+        {
+          "name": "CreateTaskIntent",
+          "slots": [
+            {
+              "name": "task_name",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "insert a task",
+            "start a new task",
+            "create a new task called {task_name}",
+            "create a task called {task_name}",
+            "add a new task called {task_name}",
+            "add a task called {task_name}",
+            "create",
+            "add",
+            "a new task",
+            "insert a new task",
+            "create a new task",
+            "create a task",
+            "create task",
+            "add a new task",
+            "add a task",
+            "add task",
+            "new task"
+          ]
+        },
+        {
+          "name": "CompleteTaskIntent",
+          "slots": [
+            {
+              "name": "task_name",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{task_name}"
+              ]
+            }
+          ],
+          "samples": [
+            "i have completed the task called {task_name}",
+            "{task_name} is complete",
+            "i have completed {task_name}",
+            "complete {task_name} ",
+            "mark {task_name} complete",
+            "completed my task",
+            "i have completed my task",
+            "i completed a task",
+            "my task is complete",
+            "i have a completed task",
+            "i have a complete task",
+            "i completed my task",
+            "task complete",
+            "mark task complete"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CompleteTaskIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "task_name",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1288885143700.1271968291290"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateTaskIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "task_name",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.207895121306.1476040983243"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1288885143700.1271968291290",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What task did you complete?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.207895121306.1476040983243",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What task do you want me to create?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
